@@ -1,0 +1,65 @@
+====================
+course links
+====================
+build-end-to-end-genai-project-production-ready-agent-with-python
+
+====================
+GitHub link
+====================
+
+https://github.com/SharathRaju489/aitravelassistant
+
+==========================
+Requirements installation
+==========================
+
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+==========================
+To run frontend
+==========================
+
+streamlit run src/app.py
+
+
+==========================
+To install dependencies
+==========================
+
+pip install langchain langchain-community fastapi uvicorn
+
+==========================
+To run app on server
+==========================
+
+uvicorn src.main:app --reload
+
+==========================
+Swagger link
+==========================
+
+http://127.0.0.1:8000/docs#/
+
+==========================
+Upload function testing
+==========================
+
+📄 Processing PDF file: paris_guide.pdf
+
+📑 PDF loaded successfully. Found 3 pages
+
+✂️ Splitting document into chunks...
+
+📚 Created 8 text chunks
+
+[
+Document(metadata={'page': 0, 'source': 'paris_guide.pdf'}, page_content='Paris Travel Guide\nPublished by: Wanderlust Guides\nDate: August 2025\nPages: 15\nIntroduction\nWelcome to Paris, the City of Light! This guide covers top attractions, dining options, and \nsuggested itineraries for an unforgettable visit.\nSection 1: Top Attractions (Pages 5-8)\nEiffel Tower (Page 5)\nThe iconic symbol of Paris, built in 1889.\nLocation: Champ de Mars, 7th arrondissement\nHours: 9:00 AM - 11:00 PM daily\nTickets: €10-€25 (elevator to top)\nTip: Visit at night for sparkling light shows.'),
+
+Document(metadata={'page': 0, 'source': 'paris_guide.pdf'}, page_content='Tickets: €10-€25 (elevator to top)\nTip: Visit at night for sparkling light shows.\nLouvre Museum (Page 6)\nThe world’s largest art museum, home to the Mona Lisa and Venus de Milo.\nLocation: 1st arrondissement, right bank of the Seine\nHours: 9:00 AM - 6:00 PM (closed Tuesdays)\nTickets: €17 (online booking recommended)\nTip: Start with the Denon wing for famous works.\nNotre-Dame Cathedral (Page 7)\nA Gothic masterpiece, partially reopened after the 2019 fire.'),
+
+Document(metadata={'page': 0, 'source': 'paris_guide.pdf'}, page_content='Notre-Dame Cathedral (Page 7)\nA Gothic masterpiece, partially reopened after the 2019 fire.\nLocation: Île de la Cité, 4th arrondissement\nHours: 8:00 AM - 7:00 PM\nTickets: Free entry; tower climb €8\nTip: Check restoration progress before visiting.\nMusée d’Orsay (Page 8)\nRenowned for Impressionist art by Monet, Van Gogh, and Degas.\nLocation: 7th arrondissement, left bank of the Seine\nHours: 9:30 AM - 6:00 PM (closed Mondays)\nTickets: €16\nTip: Arrive early to avoid crowds.'), Document(metadata={'page': 1, 'source': 'paris_guide.pdf'}, page_content='Section 2: Dining in Paris (Pages 9-11)\nLe Café Parisien (Page 9)\nA budget-friendly café with classic French dishes.\nLocation: Montmartre, 18th arrondissement\nSpecialties: Croque-monsieur, onion soup\nPrice: €10-€15 per person\nHours: 8:00 AM - 10:00 PM\nTip: Try the outdoor seating for people-watching.\nLa Tour d’Argent (Page 10)\nA Michelin-starred restaurant famous for its pressed duck.\nLocation: 5th arrondissement, near Notre-Dame\nSpecialties: Duck à la presse, fine wines'), Document(metadata={'page': 1, 'source': 'paris_guide.pdf'}, page_content='Location: 5th arrondissement, near Notre-Dame\nSpecialties: Duck à la presse, fine wines\nPrice: €100-€200 per person\nHours: 12:00 PM - 2:00 PM, 7:00 PM - 10:00 PM (closed Mondays)\nTip: Reserve months in advance.\nChez Paul (Page 11)\nA traditional bistro with hearty French comfort food.\nLocation: Le Marais, 3rd arrondissement\nSpecialties: Beef bourguignon, crème brûlée\nPrice: €20-€30 per person\nHours: 12:00 PM - 11:00 PM\nTip: Perfect for a casual dinner.'), Document(metadata={'page': 1, 'source': 'paris_guide.pdf'}, page_content='Price: €20-€30 per person\nHours: 12:00 PM - 11:00 PM\nTip: Perfect for a casual dinner.\nSection 3: Suggested Itineraries (Pages 12-15)\n2-Day Paris Itinerary (Page 12)\nDay 1:\nMorning: Louvre Museum (3 hours)\nAfternoon: Notre-Dame Cathedral and Île de la Cité walk\nEvening: Dinner at Chez Paul'), Document(metadata={'page': 2, 'source': 'paris_guide.pdf'}, page_content='Day 2:\nMorning: Eiffel Tower visit (2 hours)\nAfternoon: Musée d’Orsay (2 hours)\nEvening: Seine River cruise (€15, departs 8:00 PM)\nTip: Book museum tickets online to save time.\n3-Day Paris Itinerary (Page 13)\nDay 1: Same as 2-Day Day 1.\nDay 2: Same as 2-Day Day 2.\nDay 3:\nMorning: Sacré-Cœur Basilica in Montmartre\nAfternoon: Stroll through Luxembourg Gardens\nEvening: Dinner at La Tour d’Argent\nTip: Wear comfortable shoes for Montmartre’s hills.\nFamily-Friendly Itinerary (Page 14)'), Document(metadata={'page': 2, 'source': 'paris_guide.pdf'}, page_content='Tip: Wear comfortable shoes for Montmartre’s hills.\nFamily-Friendly Itinerary (Page 14)\nMorning: Eiffel Tower (kid-friendly audio tours)\nAfternoon: Boat ride on the Seine\nEvening: Dinner at Le Café Parisien\nTip: Check for family discounts at attractions.')]
+...
+
+]

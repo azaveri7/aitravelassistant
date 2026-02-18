@@ -1,0 +1,43 @@
+====================
+course links
+====================
+build-end-to-end-genai-project-production-ready-agent-with-python
+
+====================
+GitHub link
+====================
+
+https://github.com/SharathRaju489/aitravelassistant
+
+==========================
+Requirements installation
+==========================
+
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+==========================
+To run frontend
+==========================
+
+streamlit run src/app.py
+
+
+==========================
+To install dependencies
+==========================
+
+pip install langchain langchain-community fastapi uvicorn
+
+==========================
+To run app on server
+==========================
+
+uvicorn src.main:app --reload
+
+==========================
+Swagger link
+==========================
+
+http://127.0.0.1:8000/docs#/
