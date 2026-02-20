@@ -2,6 +2,7 @@ from fastapi import UploadFile
 import fitz  # PyMuPDF
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
+from src.embeddings import get_embeddings
 
 
 async def ingest_pdf(file: UploadFile):
@@ -30,4 +31,10 @@ async def ingest_pdf(file: UploadFile):
     chunks = splitter.split_documents(docs)
     print(f"📚 Created {len(chunks)} text chunks")
     print(chunks)
+
+    print("🧮 Generating embeddings...")
+    texts = [chunk.page_content for chunk in chunks]
+    embeddings = get_embeddings(texts)
+
+    return embeddings
 
