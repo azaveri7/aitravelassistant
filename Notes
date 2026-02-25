@@ -36,6 +36,8 @@ To run app on server
 
 uvicorn src.main:app --reload
 
+to test it, http://127.0.0.1:8000/docs#
+
 ==========================
 Swagger link
 ==========================
@@ -119,3 +121,25 @@ async def ingest_pdf(file: UploadFile):
 Vector databases
 ======================================
 https://www.datacamp.com/blog/the-top-5-vector-databases
+
+======================================
+Code to upload collection to Qdrant
+======================================
+# Get the Qdrant client
+    client = get_qdrant_client()
+
+    # Prepare the payloads for Qdrant
+    payloads = [{"text": chunk.page_content, **chunk.metadata} for chunk in chunks]
+
+    # Upload points
+    print(f"⬆️ Uploading {len(chunks)} documents to collection '{COLLECTION_NAME}'...")
+    client.upload_collection(
+        collection_name=COLLECTION_NAME,
+        vectors=embeddings,
+        payload=payloads,
+    )
+    print(f"✅ Upload complete! Added {len(chunks)} chunks from {page_count} pages")
+
+
+-> Understand that we are uploading embeddings and payloads both in the Qdrant so that
+   we know which embeddings belong to which payload.

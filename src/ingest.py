@@ -3,6 +3,8 @@ import fitz  # PyMuPDF
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 from src.embeddings import get_embeddings
+from src.vectorstores import get_qdrant_client
+from src.config import COLLECTION_NAME
 
 
 async def ingest_pdf(file: UploadFile):
@@ -36,5 +38,18 @@ async def ingest_pdf(file: UploadFile):
     texts = [chunk.page_content for chunk in chunks]
     embeddings = get_embeddings(texts)
 
-    return embeddings
+    # Get the Qdrant client
+    client = get_qdrant_client()
+
+    # Prepare the payloads for Qdrant
+    payloads = [{"text": chunk.page_content, **chunk.metadata} for chunk in chunks]
+
+    # Upload points
+    print(f"⬆️ Uploading {len(chunks)} documents to collection '{COLLECTION_NAME}'...")
+    client.upload_collection(
+        collection_name=COLLECTION_NAME,
+        vectors=embeddings,
+        payload=payloads,
+    )
+    print(f"✅ Upload complete! Added {len(chunks)} chunks from {page_count} pages")
 

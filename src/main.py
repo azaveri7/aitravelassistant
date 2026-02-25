@@ -1,8 +1,12 @@
-from fastapi import FastAPI, UploadFile
 from contextlib import asynccontextmanager
+
+from fastapi import FastAPI, UploadFile
 from pydantic import BaseModel
+
 from src.ingest import ingest_pdf
 from src.vectorstores import init_qdrant
+from src.retriever import retrieve_docs
+from src.generator import generate_answer
 
 
 @asynccontextmanager
@@ -22,7 +26,10 @@ class QueryRequest(BaseModel):
 
 @app.post("/ask")
 async def ask_question(req: QueryRequest):
-    return {"response": "anand"}
+    #retrieve_docs_response = retrieve_docs(req.query)
+    #return {"response": retrieve_docs_response}
+    response = generate_answer(req.query)
+    return {"response": response}
 
 @app.post("/upload")
 async def upload_file(file: UploadFile = None):
